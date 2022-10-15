@@ -189,7 +189,7 @@ public partial class MainWindow : Form
             LayerFilterImage[maxLayer] = new Dictionary<IFilter, Bitmap>() { { filter, processedImage } };
 
         // Collect garbage
-        GC.Collect();
+        GC.Collect(1, GCCollectionMode.Forced);
     }
 
     private void RemoveFilterByName(IFilter filter)
