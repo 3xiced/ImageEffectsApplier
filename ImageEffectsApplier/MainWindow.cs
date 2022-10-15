@@ -1,4 +1,5 @@
 using ImageProcessor.Core;
+using ImageProcessor.Core.Filters;
 using System.Drawing.Imaging;
 
 namespace ImageEffectsApplier;
@@ -19,9 +20,9 @@ public partial class MainWindow : Form
 
     IFilter ScharrFilter { get; set; }
 
-    Dictionary<int, Dictionary<IFilter, Bitmap>> LayerFilterImage;
-
     Bitmap LoadedImage { get; set; }
+
+    Dictionary<int, Dictionary<IFilter, Bitmap>> LayerFilterImage { get; set; }
 
     #endregion
 
@@ -30,11 +31,12 @@ public partial class MainWindow : Form
         InitializeComponent();
 
         FilterApplier = new FilterApplier();
-        ContrastFilter = new ImageProcessor.Core.Filters.Contrast();
-        SobelFilter = new ImageProcessor.Core.Filters.Sobel();
-        GrayscaleFilter = new ImageProcessor.Core.Filters.Grayscale();
-        PrewittFilter = new ImageProcessor.Core.Filters.Prewitt();
-        ScharrFilter = new ImageProcessor.Core.Filters.Scharr();
+        ContrastFilter = new Contrast();
+        SobelFilter = new Sobel();
+        GrayscaleFilter = new Grayscale();
+        PrewittFilter = new Prewitt();
+        ScharrFilter = new Scharr();
+
         LayerFilterImage = new() { { 0, null } };
 
         effectsComboBox.SelectedIndex = 0;
@@ -50,6 +52,7 @@ public partial class MainWindow : Form
             if (dlg.ShowDialog() == DialogResult.OK)
             {
                 pictureBox.Image = LoadedImage = new Bitmap(dlg.FileName);
+                LayerFilterImage = new() { { 0, null } };
             }
         }
     }
