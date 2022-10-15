@@ -74,10 +74,11 @@ namespace ImageEffectsApplier
 
         private void contrastTrackBar_Scroll(object sender, EventArgs e) => ApplyFilter(ContrastFilter, new FilterSettings() { FilterStrength = contrastTrackBar.Value });
 
-        private void contrastOption2_CheckedChanged(object sender, EventArgs e) {
+        private void contrastOption2_CheckedChanged(object sender, EventArgs e)
+        {
             if (contrastOption2.Checked)
                 ApplyFilter(GrayscaleFilter);
-        } 
+        }
 
         private void contrastOption1_CheckedChanged(object sender, EventArgs e)
         {
@@ -94,7 +95,7 @@ namespace ImageEffectsApplier
             {
                 LayerFilterImage = new() { { 0, null } };
                 ApplyFilter(SobelFilter);
-            }   
+            }
         }
 
         private void gradientOption2_CheckedChanged(object sender, EventArgs e)
