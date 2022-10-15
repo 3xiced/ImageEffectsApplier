@@ -87,7 +87,6 @@ public partial class MainWindow : Form
                 contrastGroupBoxSettings.Visible = false;
                 LayerFilterImage = new() { { 0, null } };
                 pictureBox.Image = LoadedImage;
-                ApplyFilter(SobelFilter);
                 break;
             case 2: // Contrast
                 contrastGroupBoxSettings.Visible = true;
@@ -218,6 +217,9 @@ public partial class MainWindow : Form
             if (found)
                 LayerFilterImage.Remove(kvp.Key);
         }
-        pictureBox.Image = LayerFilterImage[LayerFilterImage.Keys.Max()].Values.First();
+        if (LayerFilterImage.Keys.Max() != 0)
+            pictureBox.Image = LayerFilterImage[LayerFilterImage.Keys.Max()].Values.First();
+        else
+            pictureBox.Image = LoadedImage;
     }
 }
