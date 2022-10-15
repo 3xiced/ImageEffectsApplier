@@ -42,6 +42,7 @@
             this.contrastTrackBar = new System.Windows.Forms.TrackBar();
             this.contrastOption2 = new System.Windows.Forms.RadioButton();
             this.contrastOption1 = new System.Windows.Forms.RadioButton();
+            this.saveButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             this.effectOptionsGroupBox.SuspendLayout();
             this.gradientGroupBoxSettings.SuspendLayout();
@@ -64,6 +65,7 @@
             this.effectsComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.effectsComboBox.FormattingEnabled = true;
             this.effectsComboBox.Items.AddRange(new object[] {
+            "Выберите фильтр",
             "Градиент",
             "Контраст"});
             this.effectsComboBox.Location = new System.Drawing.Point(564, 35);
@@ -75,7 +77,7 @@
             // 
             // openFileButton
             // 
-            this.openFileButton.Location = new System.Drawing.Point(564, 520);
+            this.openFileButton.Location = new System.Drawing.Point(564, 479);
             this.openFileButton.Name = "openFileButton";
             this.openFileButton.Size = new System.Drawing.Size(185, 35);
             this.openFileButton.TabIndex = 3;
@@ -144,7 +146,7 @@
             this.effectOptionsGroupBox.Controls.Add(this.contrastGroupBoxSettings);
             this.effectOptionsGroupBox.Location = new System.Drawing.Point(564, 64);
             this.effectOptionsGroupBox.Name = "effectOptionsGroupBox";
-            this.effectOptionsGroupBox.Size = new System.Drawing.Size(185, 450);
+            this.effectOptionsGroupBox.Size = new System.Drawing.Size(185, 409);
             this.effectOptionsGroupBox.TabIndex = 11;
             this.effectOptionsGroupBox.TabStop = false;
             this.effectOptionsGroupBox.Text = "Настройки обработки";
@@ -209,15 +211,27 @@
             this.contrastOption1.UseVisualStyleBackColor = true;
             this.contrastOption1.CheckedChanged += new System.EventHandler(this.contrastOption1_CheckedChanged);
             // 
+            // saveButton
+            // 
+            this.saveButton.Location = new System.Drawing.Point(564, 520);
+            this.saveButton.Name = "saveButton";
+            this.saveButton.Size = new System.Drawing.Size(185, 35);
+            this.saveButton.TabIndex = 12;
+            this.saveButton.TabStop = false;
+            this.saveButton.Text = "Save";
+            this.saveButton.UseVisualStyleBackColor = true;
+            this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(764, 567);
+            this.Controls.Add(this.saveButton);
             this.Controls.Add(this.effectOptionsGroupBox);
+            this.Controls.Add(this.openFileButton);
             this.Controls.Add(this.effectLabel);
             this.Controls.Add(this.resultLabel);
-            this.Controls.Add(this.openFileButton);
             this.Controls.Add(this.effectsComboBox);
             this.Controls.Add(this.pictureBox);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
@@ -251,5 +265,6 @@
         private RadioButton contrastOption2;
         private RadioButton contrastOption1;
         private TrackBar contrastTrackBar;
+        private Button saveButton;
     }
 }
